@@ -17,7 +17,7 @@ class PurchaseRequest(metaclass=PoolMeta):
     multiple_quantity = fields.Function(fields.Float('Multiple Quantity'),
         'on_change_with_multiple_quantity')
 
-    @fields.depends('supplier', 'product')
+    @fields.depends('_parent_product.id','product')
     def on_change_with_multiple_quantity(self, name=None):
         if not self.product:
             return
