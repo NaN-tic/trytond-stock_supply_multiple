@@ -2,7 +2,7 @@
 <!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
 this repository contains the full copyright notices and license terms. -->
 <data>
-    <xpath expr="//field[@name='computed_uom']" position="after">
+    <xpath expr="//field[@name='computed_unit']" position="after">
         <label name="multiple_quantity"/>
         <field name="multiple_quantity"/>
     </xpath>
