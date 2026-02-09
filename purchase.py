@@ -4,8 +4,6 @@ import math
 from trytond.model import fields
 from trytond.pool import PoolMeta
 
-__all__ = ['ProductSupplier', 'PurchaseRequest', 'CreatePurchase']
-
 
 class ProductSupplier(metaclass=PoolMeta):
     __name__ = 'purchase.product_supplier'
@@ -17,7 +15,7 @@ class PurchaseRequest(metaclass=PoolMeta):
     multiple_quantity = fields.Function(fields.Float('Multiple Quantity'),
         'on_change_with_multiple_quantity')
 
-    @fields.depends('_parent_product.id','product')
+    @fields.depends('_parent_product.id', 'product', 'party')
     def on_change_with_multiple_quantity(self, name=None):
         if not self.product:
             return
